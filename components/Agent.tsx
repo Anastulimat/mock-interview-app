@@ -35,7 +35,7 @@ const Agent = ({
     const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
     const [messages, setMessages] = useState<SavedMessage[]>([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
-    const [lastMessage, setLastMessage] = useState<string>("");
+    const [, setLastMessage] = useState<string>("");
 
     useEffect(() => {
         const onCallStart = () => {
@@ -90,7 +90,6 @@ const Agent = ({
         }
 
         const handleGenerateFeedback = async (messages: SavedMessage[]) => {
-            console.log("handleGenerateFeedback");
 
             const {success, feedbackId: id} = await createFeedback({
                 interviewId: interviewId!,
